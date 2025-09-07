@@ -19,6 +19,12 @@ namespace webapi_with_dotnet
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/openapi/v1.json", "lerning");
+                    options.RoutePrefix = string.Empty; // serve at root
+
+                });
             }
 
             app.UseHttpsRedirection();
